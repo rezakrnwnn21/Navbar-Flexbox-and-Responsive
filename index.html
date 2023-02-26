@@ -4,308 +4,179 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Latihan Flexbox</title>
+    <title>Latihan 3</title>
+
+    <!-- Fonts -->
     <style>
-      html,
-      body {
+      @import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap");
+    </style>
+    <!-- Fonts -->
+
+    <!-- CSS -->
+    <style>
+      * {
         margin: 0;
         padding: 0;
       }
 
       body {
-        background-color: #ddd;
-        line-height: 1.65;
-        padding-bottom: 1000px;
+        overflow-x: hidden;
+        font-family: "Shantell Sans", cursive;
       }
 
-      /* Latihan 1 */
-      .container-satu {
-        max-width: 800px;
-        margin: 50px auto;
-        background-color: #fff;
-        padding: 25px;
-        box-sizing: border-box;
+      /* Navbar */
+      nav {
         display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+        background-color: rgb(255, 165, 0);
+        color: rgb(243, 229, 205);
+        align-items: center;
       }
 
-      .kolom-utama {
-        flex: 3;
-        order: 2;
-        margin-left: 15px;
-      }
-
-      .sidebar-satu {
-        margin-right: 15px;
-        flex: 1;
-        order: 1;
-      }
-
-      .sidebar-dua {
-        margin-left: 10px;
-        flex: 1;
-        order: 3;
-      }
-
-      /* Latihan 1 */
-
-      /* Latihan 2 */
-      .container-dua {
-        max-width: 800px;
-        margin: 50px auto;
-      }
-
-      .layanan-satu,
-      .layanan-dua,
-      .layanan-tiga {
-        margin-bottom: 20px;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-
-      .layanan-satu {
-        background-color: rgb(119, 119, 255);
-      }
-
-      .layanan-dua {
-        background-color: rgb(103, 216, 103);
-      }
-
-      .layanan-tiga {
-        background-color: rgb(255, 124, 124);
-      }
-      /* Latihan 2 */
-
-      /* Latihan 3 */
-      .container-tiga {
-        max-width: 800px;
-        margin: 50px auto;
+      nav ul {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        list-style: none;
+        width: 40%;
+        justify-content: space-between;
       }
 
-      .thumbnail {
-        width: 50%;
-        padding: 10px;
-        box-sizing: border-box;
+      nav ul li a {
+        color: rgb(243, 229, 205);
+        text-decoration: none;
+        font-size: 0.8em;
       }
 
-      .thumbnail img {
-        width: 100%;
-      }
-      /* Latihan 3 */
-
-      /* 4 */
-      .container-empat {
-        max-width: 800px;
-        margin: 50px auto;
-        display: flex;
-        justify-content: center ;
+      nav ul li a:hover {
+        color: rgb(242, 242, 242);
       }
 
-      .card {
-        border: 1px solid grey;
-        border-radius: 10px;
-        background-color: #eee;
-        overflow: hidden;
-        margin: 10px;
-        flex: 1;
+      /* Humburger Menu */
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        height: 20px;
+        justify-content: space-between;
+        position: relative;
       }
 
-      .card .header {
-        height: 150px;
-        background-color: #666;
+      .menu-toggle input {
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        left: -5px;
+        top: -3px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
       }
 
-      .card .body {
-        text-align: center;
-        padding-bottom: 20px;
+      .menu-toggle span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background-color: rgb(243, 229, 205);
+        border-radius: 3px;
+        transition: 0.5s;
+      }
+      /* Humburger Menu */
+
+      /* HM Animation */
+      .menu-toggle span:nth-child(2) {
+        transform-origin: 0 0;
       }
 
-      .card.besar {
-        transform: scale(1.12);
-      }
-      /* 4 */
-
-      /* 5 */
-      .container-lima {
-        max-width: 400px;
-        height: 500px;
-        margin: 50px auto;
-        border: 5px solid black;
-        display: flex;
+      .menu-toggle span:nth-child(4) {
+        transform-origin: 0 100%;
       }
 
-      .kotak {
-        width: 100px;
-        height: 100px;
-        background-color: brown;
-        color: white;
-        text-align: center;
-        margin: auto;
-        display: flex;
+      .menu-toggle input:checked ~ span:nth-child(2) {
+        transform: rotate(45deg) translate(-1px, 1px);
+        background-color: white;
       }
 
-      .kotak span {
-        margin: auto;
+      .menu-toggle input:checked ~ span:nth-child(4) {
+        transform: rotate(-45deg) translate(-1px, 0);
+        background-color: white;
       }
-      /* 5 */
+
+      .menu-toggle input:checked ~ span:nth-child(3) {
+        opacity: 0;
+        transform: scale(0);
+      }
+      /* HM Animation */
+      /* Navbar */
 
       /* Responsive */
-      @media (min-width: 600px) {
-        .container-satu {
-          display: flex;
-          justify-content: space-between;
-        }
-        .container-dua {
-          display: flex;
-          justify-content: space-between;
-        }
-
-        .layanan-satu,
-        .layanan-dua,
-        .layanan-tiga {
-          width: 30%;
-        }
-
-        .thumbnail {
-          width: 25%;
+      /* Tab */
+      @media screen and (max-width: 768px) {
+        nav ul {
+          width: 50%;
         }
       }
+      /* Tab */
+
+      /* HP */
+      @media screen and (max-width: 576px) {
+        nav ul {
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100vh;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: column;
+          z-index: -1;
+          background-color: rgb(255, 165, 0);
+          width: 80%;
+          transform: translateX(100%);
+          transition: all 1s;
+          opacity: 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+
+        nav ul.slide {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      /* HP */
 
       /* Responsive */
     </style>
+    <!-- CSS -->
   </head>
   <body>
-    <div class="container-satu">
-      <div class="kolom-utama">
-        <h2>Judul Artikel</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-          suscipit possimus molestias ducimus, quisquam, consequuntur deserunt
-          tempore velit inventore non soluta molestiae ab deleniti minima.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-          ratione delectus magnam similique quis, quisquam placeat autem qui sit
-          quidem fugiat, recusandae illum possimus atque ut eius dicta dolorem
-          soluta? Dolores voluptatem nostrum, esse consequuntur facilis
-          consectetur blanditiis! Quia, suscipit.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus
-          praesentium minima quae quo, consequatur minus quasi quas tenetur
-          quibusdam est.
-        </p>
+    <nav>
+      <div class="logo">
+        <h4>Reza Kurniawan</h4>
       </div>
-      <div class="sidebar-satu">
-        <h3>Sidebar Satu</h3>
-        <ul>
-          <li><a href="#">link 1</a></li>
-          <li><a href="#">link 2</a></li>
-          <li><a href="#">link 3</a></li>
-          <li><a href="#">link 4</a></li>
-          <li><a href="#">link 5</a></li>
-        </ul>
-      </div>
-      <div class="sidebar-dua">
-        <h3>Sidebar Dua</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-          deleniti odit ex accusamus maiores quaerat.
-        </p>
-      </div>
-    </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About Me</a></li>
+      </ul>
 
-    <!-- 2 -->
-    <div class="container-dua">
-      <div class="layanan-satu">
-        <h4>Layanan Satu</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          numquam.
-        </p>
+      <div class="menu-toggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="layanan-dua">
-        <h4>layana dua</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-          soluta quia odio assumenda laboriosam officiis.
-        </p>
-      </div>
-      <div class="layanan-tiga">
-        <h4>Layanan Tiga</h4>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore,
-          natus alias officiis voluptates consectetur quos quod dolorum
-          doloremque! Reiciendis, fugiat?
-        </p>
-      </div>
-    </div>
-    <!-- 2 -->
+    </nav>
 
-    <!-- 3 -->
-    <div class="container-tiga">
-      <div class="thumbnail">
-        <img src="img/full/1.jpg" />
-      </div>
-      <div class="thumbnail">
-        <img src="img/full/2.jpg" />
-      </div>
-      <div class="thumbnail">
-        <img src="img/full/3.jpg" />
-      </div>
-      <div class="thumbnail">
-        <img src="img/full/4.jpg" />
-      </div>
-      <div class="thumbnail">
-        <img src="img/full/5.jpg" />
-      </div>
-      <div class="thumbnail">
-        <img src="img/full/6.jpg" />
-      </div>
-    </div>
-    <!-- 3 -->
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle input");
+      const nav = document.querySelector("nav ul");
 
-    <!-- 4 -->
-    <div class="container-empat">
-      <div class="card">
-        <div class="header"></div>
-        <div class="body">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            temporibus.
-          </p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-      <div class="card besar">
-        <div class="header"></div>
-        <div class="body">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            temporibus.
-          </p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="header"></div>
-        <div class="body">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
-            temporibus.
-          </p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-    </div>
-    <!-- 4 -->
-
-    <!-- 5 -->
-    <div class="container-lima">
-      <div class="kotak"><span>Hello World World World</span></div>
-    </div>
-    <!-- 5 -->
+      menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("slide");
+      });
+    </script>
   </body>
 </html>
