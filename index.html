@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Flexbox</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #ddd;
+        line-height: 1.65;
+        padding-bottom: 1000px;
+      }
+
+      /* Latihan 1 */
+      .container-satu {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 25px;
+        box-sizing: border-box;
+        display: flex;
+      }
+
+      .kolom-utama {
+        flex: 3;
+        order: 2;
+        margin-left: 15px;
+      }
+
+      .sidebar-satu {
+        margin-right: 15px;
+        flex: 1;
+        order: 1;
+      }
+
+      .sidebar-dua {
+        margin-left: 10px;
+        flex: 1;
+        order: 3;
+      }
+
+      /* Latihan 1 */
+
+      /* Latihan 2 */
+      .container-dua {
+        max-width: 800px;
+        margin: 50px auto;
+      }
+
+      .layanan-satu,
+      .layanan-dua,
+      .layanan-tiga {
+        margin-bottom: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .layanan-satu {
+        background-color: rgb(119, 119, 255);
+      }
+
+      .layanan-dua {
+        background-color: rgb(103, 216, 103);
+      }
+
+      .layanan-tiga {
+        background-color: rgb(255, 124, 124);
+      }
+      /* Latihan 2 */
+
+      /* Latihan 3 */
+      .container-tiga {
+        max-width: 800px;
+        margin: 50px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .thumbnail {
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .thumbnail img {
+        width: 100%;
+      }
+      /* Latihan 3 */
+
+      /* 4 */
+      .container-empat {
+        max-width: 800px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center ;
+      }
+
+      .card {
+        border: 1px solid grey;
+        border-radius: 10px;
+        background-color: #eee;
+        overflow: hidden;
+        margin: 10px;
+        flex: 1;
+      }
+
+      .card .header {
+        height: 150px;
+        background-color: #666;
+      }
+
+      .card .body {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      .card.besar {
+        transform: scale(1.12);
+      }
+      /* 4 */
+
+      /* 5 */
+      .container-lima {
+        max-width: 400px;
+        height: 500px;
+        margin: 50px auto;
+        border: 5px solid black;
+        display: flex;
+      }
+
+      .kotak {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        color: white;
+        text-align: center;
+        margin: auto;
+        display: flex;
+      }
+
+      .kotak span {
+        margin: auto;
+      }
+      /* 5 */
+
+      /* Responsive */
+      @media (min-width: 600px) {
+        .container-satu {
+          display: flex;
+          justify-content: space-between;
+        }
+        .container-dua {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .layanan-satu,
+        .layanan-dua,
+        .layanan-tiga {
+          width: 30%;
+        }
+
+        .thumbnail {
+          width: 25%;
+        }
+      }
+
+      /* Responsive */
+    </style>
+  </head>
+  <body>
+    <div class="container-satu">
+      <div class="kolom-utama">
+        <h2>Judul Artikel</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+          suscipit possimus molestias ducimus, quisquam, consequuntur deserunt
+          tempore velit inventore non soluta molestiae ab deleniti minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+          ratione delectus magnam similique quis, quisquam placeat autem qui sit
+          quidem fugiat, recusandae illum possimus atque ut eius dicta dolorem
+          soluta? Dolores voluptatem nostrum, esse consequuntur facilis
+          consectetur blanditiis! Quia, suscipit.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus
+          praesentium minima quae quo, consequatur minus quasi quas tenetur
+          quibusdam est.
+        </p>
+      </div>
+      <div class="sidebar-satu">
+        <h3>Sidebar Satu</h3>
+        <ul>
+          <li><a href="#">link 1</a></li>
+          <li><a href="#">link 2</a></li>
+          <li><a href="#">link 3</a></li>
+          <li><a href="#">link 4</a></li>
+          <li><a href="#">link 5</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-dua">
+        <h3>Sidebar Dua</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+          deleniti odit ex accusamus maiores quaerat.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="container-dua">
+      <div class="layanan-satu">
+        <h4>Layanan Satu</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+          numquam.
+        </p>
+      </div>
+      <div class="layanan-dua">
+        <h4>layana dua</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
+          soluta quia odio assumenda laboriosam officiis.
+        </p>
+      </div>
+      <div class="layanan-tiga">
+        <h4>Layanan Tiga</h4>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore,
+          natus alias officiis voluptates consectetur quos quod dolorum
+          doloremque! Reiciendis, fugiat?
+        </p>
+      </div>
+    </div>
+    <!-- 2 -->
+
+    <!-- 3 -->
+    <div class="container-tiga">
+      <div class="thumbnail">
+        <img src="img/full/1.jpg" />
+      </div>
+      <div class="thumbnail">
+        <img src="img/full/2.jpg" />
+      </div>
+      <div class="thumbnail">
+        <img src="img/full/3.jpg" />
+      </div>
+      <div class="thumbnail">
+        <img src="img/full/4.jpg" />
+      </div>
+      <div class="thumbnail">
+        <img src="img/full/5.jpg" />
+      </div>
+      <div class="thumbnail">
+        <img src="img/full/6.jpg" />
+      </div>
+    </div>
+    <!-- 3 -->
+
+    <!-- 4 -->
+    <div class="container-empat">
+      <div class="card">
+        <div class="header"></div>
+        <div class="body">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
+            temporibus.
+          </p>
+          <button>Buy Now</button>
+        </div>
+      </div>
+      <div class="card besar">
+        <div class="header"></div>
+        <div class="body">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
+            temporibus.
+          </p>
+          <button>Buy Now</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="header"></div>
+        <div class="body">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti,
+            temporibus.
+          </p>
+          <button>Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- 4 -->
+
+    <!-- 5 -->
+    <div class="container-lima">
+      <div class="kotak"><span>Hello World World World</span></div>
+    </div>
+    <!-- 5 -->
+  </body>
+</html>
